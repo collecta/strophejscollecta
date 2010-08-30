@@ -1,0 +1,22 @@
+Collecta search plugin-in for Strophe
+
+Requires strophejs, http://github.com/metajack/strophejs
+
+This plug-in manages a set of streaming searches to the Collecta API.
+Each search is a pubsub subscription to Collecta.  Atom payloads will
+be delivered to the user-supplied callback function as new results
+become available.
+
+ Plug-in methods:
+   subscribe(query, options)
+     start watching a query
+
+     query - string containing desired search query
+     options - object with possible properties: api_key, query, rate_limit,
+       context_count, and score_threshold. see Collecta api docs for 
+       details on most of these. context_count is the number of historical
+       items to fetch for context. api_key and query are required; others 
+       are optional.
+
+   unsubscribeAll()
+     unsubscribe from all searches
